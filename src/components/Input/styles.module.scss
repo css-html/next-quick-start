@@ -1,0 +1,53 @@
+/* .c_input
+-------------------------------------------------------------*/
+$r: ".c_input";
+
+// block
+//-----------------------------------------------------------
+#{$r} {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+
+  // element
+  //---------------------------------------------------------
+  input {
+    height: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0.063rem solid;
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.5;
+    }
+  }
+
+  &__title {
+    order: -1;
+  }
+
+  &__message {
+    display: none;
+  }
+
+  // modifier
+  //---------------------------------------------------------
+  &Error {
+    input {
+      &:not(:disabled) {
+        border-color: red;
+      }
+    }
+
+    #{$r}__message {
+      display: block;
+      color: red;
+    }
+  }
+}
